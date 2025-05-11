@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.filters.FiltersFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp">
+
+        <TextView
+            android:id="@+id/filter_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Filters"
+            android:fontFamily="@font/saira_family"
+            android:textColor="@color/header_text_color"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/box_rounded"
+            app:layout_constraintTop_toBottomOf="@+id/filter_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Content Categories"
+                android:fontFamily="@font/saira_family"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:layout_marginBottom="15dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="15dp"
+                >
+                
+                <androidx.constraintlayout.helper.widget.Flow
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:orientation="horizontal"
+                    app:flow_horizontalGap="5dp"
+                    app:flow_horizontalStyle="packed"
+                    app:flow_horizontalAlign="start"
+                    app:flow_verticalGap="5dp"
+                    app:flow_wrapMode="chain2"
+                    app:constraint_referenced_ids="category_1, category_2, category_3, category_4, category_5"/>
+
+                <Button
+                    android:id="@+id/category_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/primary_1"
+                    android:text="Mathematics"
+                    android:fontFamily="@font/saira_family"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    tools:ignore="MissingConstraints"/>
+
+                <Button
+                    android:id="@+id/category_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/primary_1"
+                    android:text="Science"
+                    android:fontFamily="@font/saira_family"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    tools:ignore="MissingConstraints"/>
+
+                <Button
+                    android:id="@+id/category_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/primary_1"
+                    android:text="Religion"
+                    android:fontFamily="@font/saira_family"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    tools:ignore="MissingConstraints"/>
+
+                <Button
+                    android:id="@+id/category_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/primary_1"
+                    android:text="Nature"
+                    android:fontFamily="@font/saira_family"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    tools:ignore="MissingConstraints"/>
+
+                <Button
+                    android:id="@+id/category_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/primary_1"
+                    android:text="Animals"
+                    android:fontFamily="@font/saira_family"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    tools:ignore="MissingConstraints"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filter Activation Time"
+                android:fontFamily="@font/saira_family"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:layout_marginBottom="15dp" />
+
+            <TextClock
+                style="@style/Widget.MaterialComponents.TimePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:fontFamily="@font/saira_family"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/primary_1"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/toggle_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintStart_toEndOf="@+id/toggle_filter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="Activate filter at set time"
+                    android:fontFamily="@font/saira_family"
+                    android:textColor="@color/white"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filter Duration"
+                android:fontFamily="@font/saira_family"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:layout_marginBottom="15dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="15dp"
+                >
+
+                <androidx.constraintlayout.helper.widget.Flow
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:orientation="horizontal"
+                    app:flow_horizontalGap="5dp"
+                    app:flow_horizontalStyle="packed"
+                    app:flow_horizontalAlign="start"
+                    app:flow_verticalGap="5dp"
+                    app:flow_wrapMode="chain2"
+                    app:constraint_referenced_ids="duration_1, duration_2, duration_3"/>
+                <Button
+                    android:id="@+id/duration_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/primary_1"
+                    android:text="2 Hours"
+                    android:fontFamily="@font/saira_family"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    tools:ignore="MissingConstraints"/>
+
+                <Button
+                    android:id="@+id/duration_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/primary_1"
+                    android:text="Until Morning"
+                    android:fontFamily="@font/saira_family"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    tools:ignore="MissingConstraints"/>
+
+                <Button
+                    android:id="@+id/duration_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/primary_1"
+                    android:text="Custom"
+                    android:fontFamily="@font/saira_family"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    tools:ignore="MissingConstraints"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filter Strictness"
+                android:fontFamily="@font/saira_family"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:layout_marginBottom="15dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="15dp"
+                >
+
+                <androidx.constraintlayout.helper.widget.Flow
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:orientation="horizontal"
+                    app:flow_horizontalGap="5dp"
+                    app:flow_horizontalStyle="packed"
+                    app:flow_horizontalAlign="start"
+                    app:flow_verticalGap="5dp"
+                    app:flow_wrapMode="chain2"
+                    app:constraint_referenced_ids="strictness_1, strictness_2, strictness_3"/>
+                <Button
+                    android:id="@+id/strictness_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/primary_1"
+                    android:text="Low"
+                    android:fontFamily="@font/saira_family"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    tools:ignore="MissingConstraints"/>
+
+                <Button
+                    android:id="@+id/strictness_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/primary_1"
+                    android:text="Medium"
+                    android:fontFamily="@font/saira_family"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    tools:ignore="MissingConstraints"/>
+
+                <Button
+                    android:id="@+id/strictness_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/primary_1"
+                    android:text="High"
+                    android:fontFamily="@font/saira_family"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    tools:ignore="MissingConstraints"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

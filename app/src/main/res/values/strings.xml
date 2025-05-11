@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Scroll Shield</string>
+    <string name="title_home">Home</string>
+    <string name="title_badges">Badges</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_shop">Shop</string>
+    <string name="title_filters">Filters</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="dashboard_greeting">Hello, User!</string>
+    <string name="placeholder_num">42</string>
+    <string name="dashboard_daily_progress">0h out of 2h today</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="content_usage_description">List describing user content usage</string>
+    <string name="recent_activity_description">List describing user recent activity</string>
+
+    <string-array name="content_usage_placeholder">
+        <item>Mathematics</item>
+        <item>Science</item>
+        <item>Animals</item>
+        <item>Nature</item>
+    </string-array>
+</resources>
