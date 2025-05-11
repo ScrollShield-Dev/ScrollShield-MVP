@@ -40,7 +40,7 @@
                 android:layout_width="0dp"
                 android:layout_height="96dp"
                 android:layout_weight="1"
-                tools:src="@drawable/person_24dp"
+                tools:src="@drawable/person_24dp_white"
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/title_profile" />
@@ -90,6 +90,7 @@
             android:id="@+id/dashboardScroll"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:fillViewport="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.8"

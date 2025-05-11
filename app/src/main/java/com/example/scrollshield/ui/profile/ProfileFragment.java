@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.scrollshield.ContentUsageAdapter;
@@ -48,10 +49,12 @@ public class ProfileFragment extends Fragment {
         recentActivityData.add(new RecentActivityData("Completed Neural Link challenge", "3 days ago"));
 
         contentUsageView = root.findViewById(R.id.content_usage_recyclerview);
+        contentUsageView.setLayoutManager(new LinearLayoutManager(root.getContext()));
         contentUsageAdapter = new ContentUsageAdapter(contentUsageData);
         contentUsageView.setAdapter(contentUsageAdapter);
 
         recentActivityView = root.findViewById(R.id.recent_activity_recyclerview);
+        recentActivityView.setLayoutManager(new LinearLayoutManager(root.getContext()));
         recentActivityAdapter = new RecentActivityAdapter(recentActivityData);
         recentActivityView.setAdapter(recentActivityAdapter);
 

@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+        Objects.requireNonNull(getSupportActionBar()).hide();
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_filters, R.id.navigation_shop, R.id.navigation_home, R.id.navigation_badges, R.id.navigation_profile)
                 .build();

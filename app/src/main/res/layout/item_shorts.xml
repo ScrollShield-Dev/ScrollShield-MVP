@@ -31,7 +31,7 @@
         <ImageView
             android:id="@+id/shortsImage"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="10dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/person_24dp"
             android:contentDescription="Image Holder"
