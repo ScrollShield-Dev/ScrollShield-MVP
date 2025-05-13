@@ -50,7 +50,7 @@
                 android:text="Content Categories"
                 android:fontFamily="@font/saira_family"
                 android:textColor="@color/white"
-                android:textStyle="normal"
+                android:textStyle="bold"
                 android:textSize="15sp"
                 android:layout_marginBottom="15dp"/>
 
@@ -82,7 +82,7 @@
                     android:backgroundTint="@color/primary_1"
                     android:text="Mathematics"
                     android:fontFamily="@font/saira_family"
-                    android:textStyle="normal"
+                    android:textStyle="bold"
                     android:textAllCaps="false"
                     tools:ignore="MissingConstraints"/>
 
@@ -93,7 +93,7 @@
                     android:backgroundTint="@color/primary_1"
                     android:text="Science"
                     android:fontFamily="@font/saira_family"
-                    android:textStyle="normal"
+                    android:textStyle="bold"
                     android:textAllCaps="false"
                     tools:ignore="MissingConstraints"/>
 
@@ -104,7 +104,7 @@
                     android:backgroundTint="@color/primary_1"
                     android:text="Religion"
                     android:fontFamily="@font/saira_family"
-                    android:textStyle="normal"
+                    android:textStyle="bold"
                     android:textAllCaps="false"
                     tools:ignore="MissingConstraints"/>
 
@@ -115,7 +115,7 @@
                     android:backgroundTint="@color/primary_1"
                     android:text="Nature"
                     android:fontFamily="@font/saira_family"
-                    android:textStyle="normal"
+                    android:textStyle="bold"
                     android:textAllCaps="false"
                     tools:ignore="MissingConstraints"/>
 
@@ -126,7 +126,7 @@
                     android:backgroundTint="@color/primary_1"
                     android:text="Animals"
                     android:fontFamily="@font/saira_family"
-                    android:textStyle="normal"
+                    android:textStyle="bold"
                     android:textAllCaps="false"
                     tools:ignore="MissingConstraints"/>
 
@@ -138,7 +138,7 @@
                 android:text="Filter Activation Time"
                 android:fontFamily="@font/saira_family"
                 android:textColor="@color/white"
-                android:textStyle="normal"
+                android:textStyle="bold"
                 android:textSize="15sp"
                 android:layout_marginBottom="15dp" />
 
@@ -162,9 +162,10 @@
                     android:id="@+id/toggle_filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -186,7 +187,7 @@
                 android:text="Filter Duration"
                 android:fontFamily="@font/saira_family"
                 android:textColor="@color/white"
-                android:textStyle="normal"
+                android:textStyle="bold"
                 android:textSize="15sp"
                 android:layout_marginBottom="15dp"/>
 
@@ -217,7 +218,7 @@
                     android:backgroundTint="@color/primary_1"
                     android:text="2 Hours"
                     android:fontFamily="@font/saira_family"
-                    android:textStyle="normal"
+                    android:textStyle="bold"
                     android:textAllCaps="false"
                     tools:ignore="MissingConstraints"/>
 
@@ -228,7 +229,7 @@
                     android:backgroundTint="@color/primary_1"
                     android:text="Until Morning"
                     android:fontFamily="@font/saira_family"
-                    android:textStyle="normal"
+                    android:textStyle="bold"
                     android:textAllCaps="false"
                     tools:ignore="MissingConstraints"/>
 
@@ -239,7 +240,7 @@
                     android:backgroundTint="@color/primary_1"
                     android:text="Custom"
                     android:fontFamily="@font/saira_family"
-                    android:textStyle="normal"
+                    android:textStyle="bold"
                     android:textAllCaps="false"
                     tools:ignore="MissingConstraints"/>
 
@@ -252,7 +253,7 @@
                 android:text="Filter Strictness"
                 android:fontFamily="@font/saira_family"
                 android:textColor="@color/white"
-                android:textStyle="normal"
+                android:textStyle="bold"
                 android:textSize="15sp"
                 android:layout_marginBottom="15dp"/>
 
@@ -283,7 +284,7 @@
                     android:backgroundTint="@color/primary_1"
                     android:text="Low"
                     android:fontFamily="@font/saira_family"
-                    android:textStyle="normal"
+                    android:textStyle="bold"
                     android:textAllCaps="false"
                     tools:ignore="MissingConstraints"/>
 
@@ -294,7 +295,7 @@
                     android:backgroundTint="@color/primary_1"
                     android:text="Medium"
                     android:fontFamily="@font/saira_family"
-                    android:textStyle="normal"
+                    android:textStyle="bold"
                     android:textAllCaps="false"
                     tools:ignore="MissingConstraints"/>
 
@@ -305,7 +306,7 @@
                     android:backgroundTint="@color/primary_1"
                     android:text="High"
                     android:fontFamily="@font/saira_family"
-                    android:textStyle="normal"
+                    android:textStyle="bold"
                     android:textAllCaps="false"
                     tools:ignore="MissingConstraints"/>
 
