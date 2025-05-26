@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -35,6 +36,7 @@ android {
 }
 
 dependencies {
+    implementation(platform(libs.firebase.bom))
 
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -43,7 +45,22 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
-    testImplementation(libs.junit)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.ui.auth)
+    implementation(libs.play.services.auth)
+    implementation("com.google.api-client:google-api-client-android:1.22.0") {
+        exclude(group = "org.apache.httpcomponents")
+    }
+    implementation("com.google.apis:google-api-services-youtube:v3-rev183-1.22.0") {
+        exclude(group = "org.apache.httpcomponents")
+    }
+    implementation(libs.easypermissions)
+    implementation(libs.activity)
+    implementation(libs.core)
+
+testImplementation(libs.junit)
+
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 }

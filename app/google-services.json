@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "711962088179",
+    "project_id": "scrollshield-dev",
+    "storage_bucket": "scrollshield-dev.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711962088179:android:7b7db688dd019fffc19d86",
+        "android_client_info": {
+          "package_name": "com.example.scrollshield"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711962088179-86ej4nsvpnlii8vj2brrsb1v1eqbn5o2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.scrollshield",
+            "certificate_hash": "e63e7a4310deb693ed975b908e310bfb17be2fc7"
+          }
+        },
+        {
+          "client_id": "711962088179-igkigdosdn6bnplcj06qv092p8jb90bs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJP9epxjh5x-mJ8dgfBvP70sjwarIC3Hs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711962088179-igkigdosdn6bnplcj06qv092p8jb90bs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
