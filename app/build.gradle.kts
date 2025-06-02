@@ -45,15 +45,18 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.guava)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.ui.auth)
     implementation(libs.play.services.auth)
     implementation("com.google.api-client:google-api-client-android:1.22.0") {
         exclude(group = "org.apache.httpcomponents")
+        exclude(group = "com.google.guava")
     }
     implementation("com.google.apis:google-api-services-youtube:v3-rev183-1.22.0") {
         exclude(group = "org.apache.httpcomponents")
+        exclude(group = "com.google.guava")
     }
     implementation(libs.easypermissions)
     implementation(libs.activity)

@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.example.scrollshield.ui.home.HomeViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
@@ -21,6 +23,8 @@ import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.youtube.YouTube;
+import com.google.api.services.youtube.model.SearchListResponse;
+import com.google.api.services.youtube.model.SearchResult;
 import com.google.api.services.youtube.model.Video;
 import com.google.api.services.youtube.model.VideoListResponse;
 
@@ -36,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private GoogleAccountCredential credential;
+    private List<ShortsData> shortsList;
+    private HomeViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+        shortsList = new ArrayList<>();
+        viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+
         String username = getPreferences(Context.MODE_PRIVATE).getString(PREF_ACCOUNT_NAME, null);
         credential.setSelectedAccountName(username);
         getVideoListing();
@@ -75,11 +84,25 @@ public class MainActivity extends AppCompatActivity {
             try {
                 List<String> videoList = new ArrayList<String>();
                 YouTube.Videos.List req = ytService.videos().list("snippet. contentDetails, statistics");
-                VideoListResponse response = req.setChart("mostPopular").setRegionCode("MY").execute();
+                VideoListResponse response = req
+                        .setChart("mostPopular")
+                        .setRegionCode("MY")
+                        .execute();
+
+                YouTube.Search.List search = ytService.search().list("snippet");
+                SearchListResponse resp2 = search
+                        .setMaxResults((Integer.toUnsignedLong(25)))
+                        .setOrder("viewCount")
+                        .setType("video")
+                        .setVideoDuration("short")
+                        .setQ("Neuro-sama")
+                        .execute();
 
             handler.post(() -> {
-                for (Video vid : response.getItems()) {
-
+                for (SearchResult vid : resp2.getItems()) {
+                    ShortsData newShorts = new ShortsData(vid.getId().getVideoId(), vid.getSnippet().getChannelTitle(), vid.getSnippet().getTitle(), R.drawable.person_24dp);
+                    shortsList.add(newShorts);
+                    viewModel.setShortsDataList(shortsList);
                 }
             });
 

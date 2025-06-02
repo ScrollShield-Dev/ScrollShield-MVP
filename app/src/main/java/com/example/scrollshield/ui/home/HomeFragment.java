@@ -26,6 +26,8 @@ public class HomeFragment extends Fragment {
     private List<ShortsData> shortsDataList;
     private ShortsAdapter shortsAdapter;
 
+    private HomeViewModel viewModel;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel =
@@ -35,9 +37,14 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
 
         shortsDataList = new ArrayList<>();
-        shortsDataList.add(new ShortsData(Uri.parse("android.resource://" + requireActivity().getPackageName() + "/" + R.raw.neuro_talks_back_to_her_father), "vedal9867", "Neuro talks back to her father", R.drawable.person_24dp));
+        shortsDataList.add(new ShortsData("5YoGwRkpa9A", "vedal9867", "Neuro talks back to her father", R.drawable.person_24dp));
 
         shortsContainer = root.findViewById(R.id.videoPager);
+
+        viewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
+        viewModel.getShortsDataList().observe(getViewLifecycleOwner(), dataList -> {
+            shortsDataList = dataList;
+        });
 
         shortsAdapter = new ShortsAdapter(shortsDataList);
         shortsContainer.setAdapter(shortsAdapter);

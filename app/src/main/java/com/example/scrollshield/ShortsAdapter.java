@@ -11,6 +11,10 @@ import android.widget.VideoView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
+
 import java.util.List;
 
 public class ShortsAdapter extends RecyclerView.Adapter<ShortsAdapter.ShortsViewHolder> {
@@ -40,7 +44,7 @@ public class ShortsAdapter extends RecyclerView.Adapter<ShortsAdapter.ShortsView
 
     public class ShortsViewHolder extends RecyclerView.ViewHolder {
 
-        VideoView shortsView;
+        YouTubePlayerView shortsView;
         TextView shortsUser, shortsTitle;
         ImageView shortsImage;
 
@@ -54,11 +58,19 @@ public class ShortsAdapter extends RecyclerView.Adapter<ShortsAdapter.ShortsView
         }
 
         public void setShortsListData(ShortsData shortsData) {
-            shortsView.setVideoURI(shortsData.getShortsPath());
+
             shortsImage.setImageResource(shortsData.getShortsImg());
             shortsUser.setText(shortsData.getShortsUser());
             shortsTitle.setText(shortsData.getShortsTitle());
+            shortsView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
+                @Override
+                public void onReady(@NonNull YouTubePlayer youTubePlayer) {
+                    youTubePlayer.setLoop(true);
+                    youTubePlayer.loadVideo(shortsData.getShortsPath(), 0);
+                }
+            });
 
+            /*
             shortsView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mediaPlayer) {
@@ -81,6 +93,7 @@ public class ShortsAdapter extends RecyclerView.Adapter<ShortsAdapter.ShortsView
                     mediaPlayer.start();
                 }
             });
+             */
         }
 
     }

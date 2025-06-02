@@ -4,18 +4,18 @@ import android.net.Uri;
 
 public class ShortsData {
 
-    private Uri shortsPath;
+    private String shortsPath;
     private String shortsUser, shortsTitle;
     private int shortsImg;
 
-    public ShortsData(Uri shortsPath, String shortsUser, String shortsTitle, int shortsImg) {
+    public ShortsData(String shortsPath, String shortsUser, String shortsTitle, int shortsImg) {
         this.shortsPath = shortsPath;
         this.shortsUser = shortsUser;
         this.shortsTitle = shortsTitle;
         this.shortsImg = shortsImg;
     }
 
-    public Uri getShortsPath() {
+    public String getShortsPath() {
         return shortsPath;
     }
 
