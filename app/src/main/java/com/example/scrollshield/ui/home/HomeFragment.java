@@ -42,11 +42,12 @@ public class HomeFragment extends Fragment {
         shortsContainer = root.findViewById(R.id.videoPager);
 
         viewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
+        shortsAdapter = new ShortsAdapter(viewModel.getShortsDataList(), requireActivity());
         viewModel.getShortsDataList().observe(getViewLifecycleOwner(), dataList -> {
             shortsDataList = dataList;
+            shortsAdapter.notifyDataSetChanged();
         });
 
-        shortsAdapter = new ShortsAdapter(shortsDataList);
         shortsContainer.setAdapter(shortsAdapter);
 
         //final TextView textView = binding.textHome;

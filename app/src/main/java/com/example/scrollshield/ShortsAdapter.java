@@ -9,12 +9,15 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShortsAdapter extends RecyclerView.Adapter<ShortsAdapter.ShortsViewHolder> {
@@ -22,7 +25,15 @@ public class ShortsAdapter extends RecyclerView.Adapter<ShortsAdapter.ShortsView
     List<ShortsData> shortsDataList;
 
     public ShortsAdapter(List<ShortsData> shortsDataList) {
+
         this.shortsDataList = shortsDataList;
+    }
+
+    public ShortsAdapter(LiveData<List<ShortsData>> shortsLiveData, LifecycleOwner lifecycleOwner) {
+        this.shortsDataList = new ArrayList<>();
+        shortsLiveData.observe(lifecycleOwner, newShortsData -> {
+            this.shortsDataList = newShortsData;
+        });
     }
 
     @NonNull

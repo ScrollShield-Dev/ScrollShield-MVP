@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.preference.PreferenceManager;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResult;
@@ -51,7 +52,7 @@ import pub.devrel.easypermissions.EasyPermissions;
 public class LoginActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks {
 
     GoogleAccountCredential mCredential;
-    ActivityResultLauncher<Intent> onCredentialLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), this::onAuthenticationDone);
+    ActivityResultLauncher<Intent> onCredentialLauncher;
 
     static final int REQUEST_ACCOUNT_PICKER = 1000;
     static final int REQUEST_AUTHORIZATION = 1001;
@@ -68,6 +69,7 @@ public class LoginActivity extends AppCompatActivity implements EasyPermissions.
 
             mCredential = GoogleAccountCredential.usingOAuth2(getApplicationContext(), Arrays.asList(SCOPES)).setBackOff(new ExponentialBackOff());
             getResultsFromApi();
+
 
             Intent loggedOn = new Intent(LoginActivity.this, MainActivity.class);
             LoginActivity.this.startActivity(loggedOn);
@@ -109,7 +111,7 @@ public class LoginActivity extends AppCompatActivity implements EasyPermissions.
         if (result.getResultCode() == RESULT_OK && returnData != null && returnData.getExtras() != null) {
             String accountName = returnData.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
             if (accountName != null) {
-                SharedPreferences settings = getPreferences(Context.MODE_PRIVATE);
+                SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 SharedPreferences.Editor editor = settings.edit();
                 editor.putString(PREF_ACCOUNT_NAME, accountName);
                 editor.apply();
@@ -143,13 +145,14 @@ public class LoginActivity extends AppCompatActivity implements EasyPermissions.
 
             try {
                 List<String> videoList = new ArrayList<>();
-                YouTube.Videos.List req = ytService.videos().list("snippet. contentDetails, statistics");
+                YouTube.Videos.List req = ytService.videos().list("snippet, contentDetails, statistics");
                 VideoListResponse response = req.setChart("mostPopular").setRegionCode("MY").execute();
 
                 handler.post(() -> {
                 });
 
             } catch (Exception e) {
+
                 throw new RuntimeException(e);
             }
         });
@@ -166,10 +169,11 @@ public class LoginActivity extends AppCompatActivity implements EasyPermissions.
             return insets;
         });
 
+        onCredentialLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), this::onAuthenticationDone);
+
         // Choose authentication providers
         List<AuthUI.IdpConfig> providers = Arrays.asList(
-                new AuthUI.IdpConfig.EmailBuilder().build(),
-                new AuthUI.IdpConfig.GoogleBuilder().build());
+                new AuthUI.IdpConfig.EmailBuilder().build());
 
         // Create and launch sign-in intent
         Intent signInIntent = AuthUI.getInstance()
@@ -182,10 +186,10 @@ public class LoginActivity extends AppCompatActivity implements EasyPermissions.
     }
 
     @AfterPermissionGranted(REQUEST_PERMISSION_GET_ACCOUNTS)
-    private void chooseAccount() {
+    public void chooseAccount() {
         if (EasyPermissions.hasPermissions(
                 this, Manifest.permission.GET_ACCOUNTS)) {
-            String accountName = getPreferences(Context.MODE_PRIVATE)
+            String accountName = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
                     .getString(PREF_ACCOUNT_NAME, null);
             if (accountName != null) {
                 mCredential.setSelectedAccountName(accountName);
